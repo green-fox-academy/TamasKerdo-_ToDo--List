@@ -11,7 +11,7 @@ namespace ToDoList
         public String commandName { get; set; }
         public List<string> textContent { get; set; }
 
-        FileHandler(string FileName, string commandName)
+        public FileHandler(string FileName, string commandName)
         {
             this.FileName = FileName;
             this.commandName = commandName;
@@ -25,16 +25,20 @@ namespace ToDoList
             string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                textContent.Add(line);
-                }            
+                Console.WriteLine(line);
+                textContent.Add(line);                
+                }
+            sr.Close();
         }
 
         public void WriteToDoFile()
         {
             TextWriter tw = new StreamWriter(FileName);
 
+            Console.ReadLine();
             for (int i = 0; i < textContent.Count; i++)
             {
+                Console.WriteLine(textContent[i]);
                 tw.WriteLine(textContent[i],false);
             }
 
