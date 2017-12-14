@@ -21,8 +21,9 @@ namespace ToDoList
                 number =  (i+1).ToString() + " - ";                
                 line = textContent[i];                
                 string[] words = line.Split(' ');
-                words[0] = number + words[1];
-                Console.WriteLine(words[0]);
+                words[0] = number + words[0] + line;
+                Console.WriteLine(number+ line);
+
             }
             textContent.Clear();
         }

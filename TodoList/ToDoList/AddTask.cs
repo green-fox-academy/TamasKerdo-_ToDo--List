@@ -11,7 +11,7 @@ namespace ToDoList
         public AddTask(string FileName, string InputTask) : base(FileName)
         {
 
-            this.InputTask = "0" + InputTask;
+            this.InputTask = "[ ]" + InputTask;
         }
 
         public void AddTaskToFile()
