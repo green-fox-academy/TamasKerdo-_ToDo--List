@@ -1,4 +1,2 @@
 - cica
-- kutya
-+ maki
 + retek

@@ -23,6 +23,7 @@ namespace ToDoList
             var lt = new ListTasks("TodoApp.txt");
             lt.List();
             Console.ReadLine();
+            
         }
     }
 }

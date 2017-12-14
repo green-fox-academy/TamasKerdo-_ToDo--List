@@ -19,6 +19,7 @@ namespace ToDoList
             ReadToDoFile();
             textContent.Add(InputTask);
             WriteToDoFile();
+            textContent.Clear();
         }
     }
 }
