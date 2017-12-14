@@ -16,9 +16,12 @@ namespace ToDoList
             Console.WriteLine("-c   Completes an task\n");
             Console.ReadLine();
 
-            var fh = new FileHandler("TodoApp.txt","-l");
+            var fh = new FileHandler("TodoApp.txt");
             fh.ReadToDoFile();
             fh.WriteToDoFile();
+            Console.ReadLine();
+            var lt = new ListTasks("TodoApp.txt");
+            lt.List();
             Console.ReadLine();
         }
     }

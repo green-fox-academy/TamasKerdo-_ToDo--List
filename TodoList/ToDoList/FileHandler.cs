@@ -7,16 +7,13 @@ namespace ToDoList
 {
     class FileHandler
     {
-        public String FileName { get; set; }
-        public String commandName { get; set; }
+        public String FileName { get; set; }        
         public List<string> textContent { get; set; }
 
-        public FileHandler(string FileName, string commandName)
+        public FileHandler(string FileName)
         {
-            this.FileName = FileName;
-            this.commandName = commandName;
+            this.FileName = FileName;            
             textContent = new List<string>();
-
         }
 
         public void ReadToDoFile()
@@ -24,8 +21,7 @@ namespace ToDoList
             StreamReader sr = new StreamReader(FileName);
             string line;
                 while ((line = sr.ReadLine()) != null)
-                {
-                Console.WriteLine(line);
+                {                
                 textContent.Add(line);                
                 }
             sr.Close();
@@ -34,16 +30,12 @@ namespace ToDoList
         public void WriteToDoFile()
         {
             TextWriter tw = new StreamWriter(FileName);
-
-            Console.ReadLine();
+            
             for (int i = 0; i < textContent.Count; i++)
-            {
-                Console.WriteLine(textContent[i]);
+            {                
                 tw.WriteLine(textContent[i],false);
             }
-
             tw.Close();
         }
-
     }
 }

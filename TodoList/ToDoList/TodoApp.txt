@@ -1,4 +1,4 @@
-cica
-kutya
-maki
-retek
+- cica
+- kutya
++ maki
++ retek
