@@ -10,7 +10,6 @@ namespace ToDoList
 
         public RemoveTask(string FileName, int LineToRemove) : base(FileName)
         {
-
             this.LineToRemove = LineToRemove;
         }
 
@@ -19,10 +18,7 @@ namespace ToDoList
             ReadToDoFile();
             textContent.RemoveAt(LineToRemove - 1);
             WriteToDoFile();
-            textContent.Clear();
-
-            var modifiedFile = new ListTasks(FileName);
-            modifiedFile.List();
+            textContent.Clear();            
         }
     }
 }

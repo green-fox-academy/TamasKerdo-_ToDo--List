@@ -19,15 +19,11 @@ namespace ToDoList
             for (int i = 0; i < textContent.Count; i++)
             {
                 number =  (i+1).ToString() + " - ";                
-                line = textContent[i];                
-                string[] words = line.Split(' ');
-                words[0] = number + words[0] + line;
+                line = textContent[i];  
                 Console.WriteLine(number+ line);
-
             }
             textContent.Clear();
         }
-
     }
 }
 
