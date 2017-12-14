@@ -6,7 +6,17 @@ namespace ToDoList
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("\n");
+            Console.WriteLine("Command Line Todo application \n");
+            Console.WriteLine("============================= \n");            
+            Console.WriteLine("Command line arguments:\n");
+            Console.WriteLine("-l   Lists all the tasks\n");
+            Console.WriteLine("-a   Adds a new task\n");
+            Console.WriteLine("-r   Removes an task\n");
+            Console.WriteLine("-c   Completes an task\n");
+            Console.ReadLine();
+
+
         }
     }
 }
