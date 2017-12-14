@@ -18,17 +18,11 @@ namespace ToDoList
             string number;
             for (int i = 0; i < textContent.Count; i++)
             {
-                number =  (i+1).ToString() + " - ";
-                line = textContent[i];
+                number =  (i+1).ToString() + " - ";                
+                line = textContent[i];                
                 string[] words = line.Split(' ');
                 words[0] = number + words[1];
-                line = " ";
-
-                foreach (var word in words)
-                {
-                    line += word;
-                }                
-                Console.WriteLine(line);                
+                Console.WriteLine(words[0]);
             }
             textContent.Clear();
         }
