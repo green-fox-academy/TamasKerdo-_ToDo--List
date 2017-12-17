@@ -17,7 +17,8 @@ namespace ToDoList
         public void CheckLine()
         {
             ReadToDoFile();
-            if (textContent.Count >= rowToCheck)
+
+            try
             {
                 string line = textContent[rowToCheck];
                 List<string> wordsInOneLine = line.Split(' ').ToList();
@@ -36,6 +37,12 @@ namespace ToDoList
                 sb.Clear();
                 wordsInOneLine.Clear();
             }
+
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Unable to check: index is out of bound");
+            }
+            textContent.Clear();
         }
     }
 }

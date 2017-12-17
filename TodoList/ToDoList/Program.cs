@@ -20,6 +20,7 @@ namespace ToDoList
 
             var args = new string[2];
             args[0] = "-c";
+            args[1] = "40";
 
 
             switch (args[0])
@@ -49,10 +50,10 @@ namespace ToDoList
                         ct.List();
                         
                     }
-                    catch (ArgumentNullException ex)
+                    catch (ArgumentNullException)
                     {
 
-                        Console.WriteLine(ex.Message);
+                        Console.WriteLine("Unable to check: no index provided");
                     }
                     break;
 
