@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ToDoList
@@ -10,29 +11,31 @@ namespace ToDoList
 
         public CheckTask(string FileName, int rowToCheck) : base(FileName)
         {
-            this.rowToCheck = rowToCheck;
+            this.rowToCheck = rowToCheck - 1;
         }
 
         public void CheckLine()
         {
             ReadToDoFile();
             if (textContent.Count >= rowToCheck)
-            {                
+            {
                 string line = textContent[rowToCheck];
-                Console.WriteLine(line);
-                string[] wordsInOneLine = line.Split(' ');
-                wordsInOneLine[0] = "[x]";
-                line = "";
+                List<string> wordsInOneLine = line.Split(' ').ToList();
+                var sb = new StringBuilder();
+
+                wordsInOneLine.RemoveAt(0);
+                sb.Append("[x] ");
+
                 foreach (var word in wordsInOneLine)
                 {
-                    line += word+ " ";
-                    Console.WriteLine(line);
-                    
+                    sb.Append(word + " ");
                 }
-                textContent[rowToCheck] = line;                
+
+                textContent[rowToCheck] = sb.ToString();
                 WriteToDoFile();
+                sb.Clear();
+                wordsInOneLine.Clear();
             }
-            textContent.Clear();
         }
     }
 }

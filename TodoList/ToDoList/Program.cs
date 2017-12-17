@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Text;
+using System.Linq;
 
 namespace ToDoList
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] a)
         {
             Console.WriteLine("\n");
             Console.WriteLine("Command Line Todo application \n");
@@ -16,32 +18,51 @@ namespace ToDoList
             Console.WriteLine("-c   Completes an task\n");
             Console.ReadLine();
 
+            var args = new string[2];
+            args[0] = "-c";
 
-            var lt = new ListTasks("TodoApp.txt");
+
             switch (args[0])
             {
                 case "-l":
-                    lt.List();
+                    var fh = new FileHandler("TodoApp.txt");
+                    fh.List();
                     break;
 
                 case "-a":
                     var at = new AddTask("TodoApp.txt", args[1]);
                     at.AddTaskToFile();
-                    lt.List();
+                    at.List();
                     break;
 
                 case "-r":
                     var rt = new RemoveTask("TodoApp.txt", Int32.Parse(args[1]));
                     rt.Remove();
-                    lt.List();
+                    rt.List();
                     break;
 
                 case "-c":
-                    var ct = new CheckTask("TodoApp.txt", Int32.Parse(args[1]));
-                    ct.CheckLine();
-                    lt.List();
+                    try
+                    {
+                        var ct = new CheckTask("TodoApp.txt", Int32.Parse(args[1]));
+                        ct.CheckLine();
+                        ct.List();
+                        
+                    }
+                    catch (ArgumentNullException ex)
+                    {
+
+                        Console.WriteLine(ex.Message);
+                    }
                     break;
+
+                default:
+                    break;
+
+
+                    
             }
+            Console.ReadLine();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ToDoList
         {
             this.FileName = FileName;            
             textContent = new List<string>();
-        }
+        }        
 
         public void ReadToDoFile()
         {
@@ -36,6 +36,22 @@ namespace ToDoList
                 tw.WriteLine(textContent[i],false);
             }
             tw.Close();
+            textContent.Clear();
         }
+
+        public void List()
+        {
+            ReadToDoFile();
+            string line;
+            string number;
+            for (int i = 0; i < textContent.Count; i++)
+            {
+                number = (i + 1).ToString() + " - ";
+                line = textContent[i];
+                Console.WriteLine(number + line);
+            }
+            textContent.Clear();
+        }
+
     }
 }

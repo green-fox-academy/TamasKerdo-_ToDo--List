@@ -1,5 +1,5 @@
-[] lllllllll
-[] tttttt
-[] hhhhhhhh
-[] jjjjjj
-
+[] kivinni a szemetet
+[x] fozni       
+[] programozni
+[] portorolni 
+[x] repair the fridge 
