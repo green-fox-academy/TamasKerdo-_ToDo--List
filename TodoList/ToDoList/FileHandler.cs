@@ -52,6 +52,5 @@ namespace ToDoList
             }
             textContent.Clear();
         }
-
     }
 }

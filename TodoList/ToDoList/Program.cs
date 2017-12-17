@@ -8,20 +8,11 @@ namespace ToDoList
     {
         static void Main(string[] a)
         {
-            Console.WriteLine("\n");
-            Console.WriteLine("Command Line Todo application \n");
-            Console.WriteLine("============================= \n");            
-            Console.WriteLine("Command line arguments:\n");
-            Console.WriteLine("-l   Lists all the tasks\n");
-            Console.WriteLine("-a   Adds a new task\n");
-            Console.WriteLine("-r   Removes an task\n");
-            Console.WriteLine("-c   Completes an task\n");
-            Console.ReadLine();
+            WriteOutTheManual();
 
             var args = new string[2];
-            args[0] = "-c";
-            args[1] = "retek";
-
+            args[0] = "-r";
+            args[1] = "iuyabdsc";
 
             switch (args[0])
             {
@@ -31,15 +22,34 @@ namespace ToDoList
                     break;
 
                 case "-a":
-                    var at = new AddTask("TodoApp.txt", args[1]);
-                    at.AddTaskToFile();
-                    at.List();
+                    try
+                    {
+                        var at = new AddTask("TodoApp.txt", args[1]);
+                        at.AddTaskToFile();
+                        at.List();
+                    }
+                    catch (ArgumentNullException)
+                    {
+
+                        Console.WriteLine("Unable to add: no task provided");
+                    }
                     break;
 
                 case "-r":
-                    var rt = new RemoveTask("TodoApp.txt", Int32.Parse(args[1]));
-                    rt.Remove();
-                    rt.List();
+                    try
+                    {
+                        var rt = new RemoveTask("TodoApp.txt", Int32.Parse(args[1]));
+                        rt.Remove();
+                        rt.List();
+                    }
+                    catch (ArgumentNullException)
+                    {
+                        Console.WriteLine("Unable to remove: no index provided");
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Unable to remove: index is not a number");
+                    }
                     break;
 
                 case "-c":
@@ -47,8 +57,7 @@ namespace ToDoList
                     {
                         var ct = new CheckTask("TodoApp.txt", Int32.Parse(args[1]));
                         ct.CheckLine();
-                        ct.List();
-                        
+                        ct.List();                        
                     }
                     catch (ArgumentNullException)
                     {
@@ -59,16 +68,27 @@ namespace ToDoList
                     {
 
                         Console.WriteLine("Unable to check: index is not a number");
-                    }
-                    
+                    }                    
                     break;
 
                 default:
+                    WriteOutTheManual();
                     break;
-
-
-                    
             }
+            Console.ReadLine();
+        }
+
+        static void WriteOutTheManual()
+        {
+            Console.WriteLine("Unsupported argument");
+            Console.WriteLine("\n");
+            Console.WriteLine("Command Line Todo application \n");
+            Console.WriteLine("============================= \n");
+            Console.WriteLine("Command line arguments:\n");
+            Console.WriteLine("-l   Lists all the tasks\n");
+            Console.WriteLine("-a   Adds a new task\n");
+            Console.WriteLine("-r   Removes an task\n");
+            Console.WriteLine("-c   Completes an task\n");
             Console.ReadLine();
         }
     }

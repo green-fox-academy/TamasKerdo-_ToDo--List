@@ -16,8 +16,18 @@ namespace ToDoList
         public void Remove()
         {
             ReadToDoFile();
-            textContent.RemoveAt(LineToRemove - 1);
-            WriteToDoFile();
+
+            try
+            {
+                textContent.RemoveAt(LineToRemove - 1);
+                WriteToDoFile();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+                Console.WriteLine("Unable to remove: index is out of bound");
+            }
+            
             textContent.Clear();            
         }
     }
