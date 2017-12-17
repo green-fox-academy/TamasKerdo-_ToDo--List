@@ -20,7 +20,7 @@ namespace ToDoList
 
             var args = new string[2];
             args[0] = "-c";
-            args[1] = "40";
+            args[1] = "retek";
 
 
             switch (args[0])
@@ -55,6 +55,12 @@ namespace ToDoList
 
                         Console.WriteLine("Unable to check: no index provided");
                     }
+                    catch (FormatException)
+                    {
+
+                        Console.WriteLine("Unable to check: index is not a number");
+                    }
+                    
                     break;
 
                 default:
