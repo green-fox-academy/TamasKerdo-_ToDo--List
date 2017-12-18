@@ -6,13 +6,13 @@ namespace ToDoList
 {
     class Program
     {
-        static void Main(string[] a)
+        static void Main(string[] args)
         {
             WriteOutTheManual();
 
-            var args = new string[2];
-            args[0] = "-r";
-            args[1] = "iuyabdsc";
+            //var args = new string[2];
+            //args[0] = "-r";
+            //args[1] = "iuyabdsc";
 
             switch (args[0])
             {
@@ -52,7 +52,7 @@ namespace ToDoList
                     }
                     break;
 
-                case "-c":
+                case "-t":
                     try
                     {
                         var ct = new CheckTask("TodoApp.txt", Int32.Parse(args[1]));
@@ -79,8 +79,7 @@ namespace ToDoList
         }
 
         static void WriteOutTheManual()
-        {
-            Console.WriteLine("Unsupported argument");
+        {            
             Console.WriteLine("\n");
             Console.WriteLine("Command Line Todo application \n");
             Console.WriteLine("============================= \n");
@@ -88,7 +87,7 @@ namespace ToDoList
             Console.WriteLine("-l   Lists all the tasks\n");
             Console.WriteLine("-a   Adds a new task\n");
             Console.WriteLine("-r   Removes an task\n");
-            Console.WriteLine("-c   Completes an task\n");
+            Console.WriteLine("-t   Completes an task\n");
             Console.ReadLine();
         }
     }

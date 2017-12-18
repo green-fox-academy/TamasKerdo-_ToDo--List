@@ -1,5 +1,5 @@
-[] kivinni a szemetet
+[x] kivinni a szemetet 
 [x] fozni       
 [] programozni
-[] portorolni 
+[x] sportorolni   
 [x] repair the fridge 

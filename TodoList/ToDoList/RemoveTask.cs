@@ -24,7 +24,6 @@ namespace ToDoList
             }
             catch (ArgumentOutOfRangeException)
             {
-
                 Console.WriteLine("Unable to remove: index is out of bound");
             }
             

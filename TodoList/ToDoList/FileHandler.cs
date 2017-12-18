@@ -20,10 +20,10 @@ namespace ToDoList
         {
             StreamReader sr = new StreamReader(FileName);
             string line;
-                while ((line = sr.ReadLine()) != null)
-                {                
+            while ((line = sr.ReadLine()) != null)
+            {                
                 textContent.Add(line);                
-                }
+            }
             sr.Close();
         }
 
